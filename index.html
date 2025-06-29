@@ -243,19 +243,19 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set current year in footer
-            document.getElementById('year').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-            // --- vCard Generation ---
-            const vCardData = `BEGIN:VCARD
-VERSION:3.0
-N:Koch;Sebastian;;;
-FN:Sebastian Koch
-TEL;TYPE=WORK,VOICE:+4934556644871
-EMAIL:mail@s-ko.ch
-END:VCARD`;
-            
+        // --- vCard Generation ---
+        const vCardData = `BEGIN:VCARD
+            VERSION:3.0
+            N:Koch;Sebastian;;;
+            FN:Sebastian Koch
+            TEL;TYPE=WORK,VOICE:+4934556644871
+            EMAIL:mail@s-ko.ch
+            END:VCARD`;
+        
             const vCardBtn = document.getElementById('vcard-btn');
             vCardBtn.href = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCardData)}`;
 
@@ -267,7 +267,6 @@ END:VCARD`;
                     const icon = accordion.querySelector('.accordion-icon');
                     const isActive = content.style.maxHeight;
 
-                    
                     // Toggle the clicked accordion
                     if (isActive) {
                         content.style.maxHeight = null;
@@ -278,17 +277,17 @@ END:VCARD`;
                     }
                 });
             });
-	    
+	
 	    // --- Flip Card Logic ---
             function setupFlipCards() {
                 const flipCards = document.querySelectorAll('.flip-card-container');
                 flipCards.forEach(card => {
                     card.addEventListener('click', () => {
                         card.classList.toggle('is-flipped');
+                    });
                 });
-            });
-        }
-        setupFlipCards();.
+            }
+            setupFlipCards();
         });
     </script>
 </body>

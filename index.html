@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Ich bin spezialisiert auf moderne technische Lösungen und digitale Strategien. Lassen Sie uns vernetzen und gemeinsam innovative Projekte umsetzen.">
+
+    <title>Sebastian Koch | Technical Project Manager</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .transition-all {
+            transition: all 0.3s ease-in-out;
+        }
+        /* Styling für den aufklappbaren Bereich */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        /* --- Flip Card Styling --- */
+        .flip-card-container {
+            perspective: 1000px; /* 3D-Effekt für die Karte */
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card-container.is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Für Safari */
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* --- Icon Glow Styling mit neuen Farben --- */
+        .group:hover .icon-glow-yellow { text-shadow: 0 0 10px #FBC02D; }
+        .group:hover .icon-glow-blue   { text-shadow: 0 0 10px #00599C; }
+        .group:hover .icon-glow-green  { text-shadow: 0 0 10px #386641; }
+        .group:hover .icon-glow-red    { text-shadow: 0 0 10px #E07A5F; }
+
+        .image-glow {
+            box-shadow: 0 0 10px 2px rgba(203, 213, 225, 0.4); /* slate-300 mit 40% Opazität */
+        }
+
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Main vCard Container -->
+    <main class="max-w-4xl mx-auto p-4 sm:p-8">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="md:flex">
+                <div class="md:w-1/3 bg-slate-800 p-8 flex flex-col items-center justify-center">
+                    <img class="rounded-full w-40 h-40 object-cover border-4 border-slate-500 image-glow" 
+                         src="kochseb.jpg" 
+                         alt="Profilbild von Sebastian Koch"
+                         onerror="this.onerror=null; this.src='https://placehold.co/160x160/1e293b/ffffff?text=SK';">
+                </div>
+                <div class="md:w-2/3 p-8">
+                    <h1 class="text-4xl font-bold text-slate-900">Sebastian Koch</h1>
+                    <p class="mt-2 text-xl font-medium text-slate-600">Digital Technical Project Manager</p>
+                    <p class="mt-4 text-slate-700">
+                        Willkommen auf meiner digitalen Visitenkarte. Ich bin spezialisiert auf moderne technische Lösungen und digitale Strategien. Lassen Sie uns vernetzen und gemeinsam innovative Projekte umsetzen.
+                    </p>
+                    
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <a href="tel:+4934556644871" class="inline-flex items-center gap-2 bg-slate-100 hover:bg-green-500 hover:text-white text-slate-800 font-semibold py-2 px-4 rounded-full transition-all text-sm">
+                            <i class="fas fa-phone"></i>
+                            <span>Anrufen</span>
+                        </a>
+                        <a href="mailto:seb@koch.live" class="inline-flex items-center gap-2 bg-slate-100 hover:bg-blue-500 hover:text-white text-slate-800 font-semibold py-2 px-4 rounded-full transition-all text-sm">
+                            <i class="fas fa-envelope"></i>
+                            <span>E-Mail</span>
+                        </a>
+                        <a href="https://calendar.app.google/fTPm1i5x1WUwLp4Y7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-slate-100 hover:bg-purple-500 hover:text-white text-slate-800 font-semibold py-2 px-4 rounded-full transition-all text-sm">
+                           <i class="fas fa-calendar-check"></i>
+                           <span>Termin</span>
+                        </a>
+                        <a id="vcard-btn" href="#" download="Sebastian_Koch.vcf" class="inline-flex items-center gap-2 bg-slate-100 hover:bg-yellow-400 hover:text-slate-900 text-slate-800 font-semibold py-2 px-4 rounded-full transition-all text-sm">
+                            <i class="fas fa-address-card"></i>
+                            <span>vCard</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Areas of Expertise Section with Flip Cards -->
+        <div class="mt-8">
+             <div class="bg-white rounded-2xl shadow-lg">
+                <button class="accordion-header w-full flex justify-between items-center p-6 text-left">
+                    <h2 class="text-2xl font-bold text-slate-900">Kompetenzbereiche</h2>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="p-6 pt-0 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        
+                        <!-- Project Management Card -->
+                        <div class="flip-card-container aspect-square cursor-pointer group" onclick="this.classList.toggle('is-flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front bg-slate-50 hover:bg-[#FEF9E7] border-2 border-transparent hover:border-[#FBC02D] transition-all p-4">
+                                    <i class="fas fa-tasks fa-3x text-slate-600 group-hover:text-[#FBC02D] transition-all mb-3 icon-glow-yellow"></i>
+                                    <h3 class="font-bold text-slate-800 group-hover:text-[#B48100] transition-all">Project Management</h3>
+                                </div>
+                                <div class="flip-card-back bg-[#FBC02D] text-black p-4">
+                                    <p class="text-sm">Motivierte und flexible Teams gelangen durch Kombination klassischer und agiler Methoden zum Projekterfolg.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Parking Technology Card -->
+                        <div class="flip-card-container aspect-square cursor-pointer group" onclick="this.classList.toggle('is-flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front bg-slate-50 hover:bg-[#E6F0F7] border-2 border-transparent hover:border-[#00599C] transition-all p-4">
+                                     <i class="fas fa-parking fa-3x text-slate-600 group-hover:text-[#00599C] transition-all mb-3 icon-glow-blue"></i>
+                                     <h3 class="font-bold text-slate-800 group-hover:text-[#003C68] transition-all">Parking Technology</h3>
+                                </div>
+                                <div class="flip-card-back bg-[#00599C] text-white p-4">
+                                     <p class="text-sm">Den Übergang zum digitalen Parkraum-Management durch innovative Sensoren und Technologien gestalten.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Digital Strategy Card -->
+                        <div class="flip-card-container aspect-square cursor-pointer group" onclick="this.classList.toggle('is-flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front bg-slate-50 hover:bg-[#EBF3EC] border-2 border-transparent hover:border-[#386641] transition-all p-4">
+                                    <i class="fas fa-lightbulb fa-3x text-slate-600 group-hover:text-[#386641] transition-all mb-3 icon-glow-green"></i>
+                                    <h3 class="font-bold text-slate-800 group-hover:text-[#2A482E] transition-all">Digital Strategy</h3>
+                                </div>
+                                <div class="flip-card-back bg-[#386641] text-white p-4">
+                                     <p class="text-sm">Von der Konzeption bis zum Launch, die richtigen Strategien entwickeln und erfolgreich umsetzen.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security Operations Card -->
+                        <div class="flip-card-container aspect-square cursor-pointer group" onclick="this.classList.toggle('is-flipped')">
+                             <div class="flip-card-inner">
+                                <div class="flip-card-front bg-slate-50 hover:bg-[#FBEAE6] border-2 border-transparent hover:border-[#E07A5F] transition-all p-4">
+                                    <i class="fas fa-shield-alt fa-3x text-slate-600 group-hover:text-[#E07A5F] transition-all mb-3 icon-glow-red"></i>
+                                    <h3 class="font-bold text-slate-800 group-hover:text-[#B95B43] transition-all">Security Operations</h3>
+                                </div>
+                                <div class="flip-card-back bg-[#E07A5F] text-white p-4">
+                                     <p class="text-sm">Erfahrung und Netzwerk, Risikoanalysen und Sicherheitskonzepte mit Fokus auf maritime Sicherheit.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legal Sections -->
+        <div class="mt-8 space-y-6">
+            <!-- Datenschutz Accordion -->
+            <div class="bg-white rounded-2xl shadow-lg">
+                <button class="accordion-header w-full flex justify-between items-center p-6 text-left">
+                    <h2 class="text-2xl font-bold text-slate-900">Datenschutzerklärung</h2>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="p-6 pt-0 text-sm text-slate-600">
+                        <p class="mb-2">Stand: 29. Juni 2025</p>
+                        <h3 class="font-bold mt-4 mb-2">1. Datenschutz auf einen Blick</h3>
+                        <p class="mb-2">Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.</p>
+                        <p><strong>Verantwortliche Stelle:</strong> Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist die im Impressum genannte Person.</p>
+                        
+                        <h3 class="font-bold mt-4 mb-2">2. Allgemeine Hinweise und Pflichtinformationen</h3>
+                        <p class="mb-2"><strong>Datenschutz:</strong> Der Betreiber dieser Seiten nimmt den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften (insb. DSGVO, DDG/TTDSG) sowie dieser Datenschutzerklärung.</p>
+                        <p class="mb-2"><strong>Keine Datenerfassung durch die Website selbst:</strong> Diese Website ist als rein statische Informationsseite konzipiert. Sie verwendet keine Cookies, keine Analysetools (wie Google Analytics) und speichert keine Server-Log-Dateien. Ihr Besuch ist für uns anonym.</p>
+                        <p class="mb-2"><strong>Datenverarbeitung bei Kontaktaufnahme:</strong> Wenn Sie über die angebotenen Kontaktmöglichkeiten (E-Mail, Telefon, Terminbuchung) mit uns in Verbindung treten, werden die von Ihnen übermittelten Daten (z.B. Name, E-Mail-Adresse, Telefonnummer, Ihr Anliegen) ausschließlich zur Bearbeitung und Beantwortung Ihrer Anfrage gespeichert und verarbeitet. Die Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage auf den Abschluss eines Vertrages abzielt, andernfalls unser berechtigtes Interesse an der effektiven Bearbeitung der Anfrage (Art. 6 Abs. 1 lit. f DSGVO). Diese Daten werden nicht ohne Ihre Einwilligung an Dritte weitergegeben und gelöscht, sobald der Zweck der Speicherung entfällt und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+                        
+                        <h3 class="font-bold mt-4 mb-2">3. Ihre Rechte als betroffene Person</h3>
+                        <p class="mb-2">Sie haben jederzeit das Recht auf unentgeltliche <strong>Auskunft</strong> über Ihre gespeicherten personenbezogenen Daten, deren Herkunft, Empfänger und den Zweck der Datenverarbeitung. Weiterhin haben Sie ein Recht auf <strong>Berichtigung</strong> oder <strong>Löschung</strong> dieser Daten, ein Recht auf <strong>Einschränkung der Verarbeitung</strong> sowie ein <strong>Widerspruchsrecht</strong> gegen die Verarbeitung. Ihnen steht außerdem ein Recht auf <strong>Datenübertragbarkeit</strong> zu.</p>
+                        <p class="mb-2">Zur Ausübung dieser Rechte sowie bei weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an die im Impressum angegebene Adresse wenden. Ihnen steht zudem ein <strong>Beschwerderecht bei einer Aufsichtsbehörde</strong> zu (z.B. bei dem Landesdatenschutzbeauftragten Ihres Bundeslandes).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Impressum Accordion -->
+            <div class="bg-white rounded-2xl shadow-lg">
+                <button class="accordion-header w-full flex justify-between items-center p-6 text-left">
+                    <h2 class="text-2xl font-bold text-slate-900">Impressum</h2>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="p-6 pt-0 text-sm text-slate-600">
+                        <p>
+                            Sebastian Koch<br>
+                            Wegscheiderstr. 17<br>
+                            D-06110 Halle<br><br>
+                            E-Mail: mail@s-ko.ch<br>
+			    Telefon: +4934556644871<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center p-6 mt-4 text-sm text-slate-500">
+        <p>&copy; <span id="year"></span> Sebastian Koch</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // --- vCard Generation ---
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:Koch;Sebastian;;;
+FN:Sebastian Koch
+TEL;TYPE=WORK,VOICE:+4934556644871
+EMAIL:mail@s-ko.ch
+END:VCARD`;
+            
+            const vCardBtn = document.getElementById('vcard-btn');
+            vCardBtn.href = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCardData)}`;
+
+            // --- Accordion Logic ---
+            const accordions = document.querySelectorAll('.accordion-header');
+            accordions.forEach(accordion => {
+                accordion.addEventListener('click', () => {
+                    const content = accordion.nextElementSibling;
+                    const icon = accordion.querySelector('.accordion-icon');
+                    const isActive = content.style.maxHeight;
+
+                    
+                    // Toggle the clicked accordion
+                    if (isActive) {
+                        content.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // Note: The flip card logic is handled inline via onclick="this.classList.toggle('is-flipped')"
+            // and the corresponding CSS classes. No extra JS is needed for the flip itself.
+        });
+    </script>
+</body>
+</html>

@@ -134,7 +134,7 @@
                     <div class="p-6 pt-0 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                         
                         <!-- Project Management Card -->
-                        <div class="flip-card-container aspect-square cursor-pointer group" onclick="this.classList.toggle('is-flipped')">
+                        <div class="flip-card-container aspect-square cursor-pointer group">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front bg-slate-50 hover:bg-[#FEF9E7] border-2 border-transparent hover:border-[#FBC02D] transition-all p-4">
                                     <i class="fas fa-tasks fa-3x text-slate-600 group-hover:text-[#FBC02D] transition-all mb-3 icon-glow-yellow"></i>
@@ -147,7 +147,7 @@
                         </div>
 
                         <!-- Parking Technology Card -->
-                        <div class="flip-card-container aspect-square cursor-pointer group" onclick="this.classList.toggle('is-flipped')">
+                        <div class="flip-card-container aspect-square cursor-pointer group">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front bg-slate-50 hover:bg-[#E6F0F7] border-2 border-transparent hover:border-[#00599C] transition-all p-4">
                                      <i class="fas fa-parking fa-3x text-slate-600 group-hover:text-[#00599C] transition-all mb-3 icon-glow-blue"></i>
@@ -160,7 +160,7 @@
                         </div>
 
                         <!-- Digital Strategy Card -->
-                        <div class="flip-card-container aspect-square cursor-pointer group" onclick="this.classList.toggle('is-flipped')">
+                        <div class="flip-card-container aspect-square cursor-pointer group">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front bg-slate-50 hover:bg-[#EBF3EC] border-2 border-transparent hover:border-[#386641] transition-all p-4">
                                     <i class="fas fa-lightbulb fa-3x text-slate-600 group-hover:text-[#386641] transition-all mb-3 icon-glow-green"></i>
@@ -173,7 +173,7 @@
                         </div>
 
                         <!-- Security Operations Card -->
-                        <div class="flip-card-container aspect-square cursor-pointer group" onclick="this.classList.toggle('is-flipped')">
+                        <div class="flip-card-container aspect-square cursor-pointer group">
                              <div class="flip-card-inner">
                                 <div class="flip-card-front bg-slate-50 hover:bg-[#FBEAE6] border-2 border-transparent hover:border-[#E07A5F] transition-all p-4">
                                     <i class="fas fa-shield-alt fa-3x text-slate-600 group-hover:text-[#E07A5F] transition-all mb-3 icon-glow-red"></i>
@@ -278,9 +278,17 @@ END:VCARD`;
                     }
                 });
             });
-
-            // Note: The flip card logic is handled inline via onclick="this.classList.toggle('is-flipped')"
-            // and the corresponding CSS classes. No extra JS is needed for the flip itself.
+	    
+	    // --- Flip Card Logic ---
+            function setupFlipCards() {
+                const flipCards = document.querySelectorAll('.flip-card-container');
+                flipCards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        card.classList.toggle('is-flipped');
+                });
+            });
+        }
+        setupFlipCards();.
         });
     </script>
 </body>

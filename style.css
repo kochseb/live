@@ -1,6 +1,17 @@
 body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+            
+    background-image: url('background-pattern.jpg');
+    background-size: cover; /* Passt das Bild an, um den gesamten Bereich abzudecken */
+    background-repeat: no-repeat; /* Verhindert Wiederholung */
+    background-attachment: fixed; /* Fixiert das Bild, damit es beim Scrollen nicht bewegt wird */
+    background-position: center center; /* Zentriert das Bild */
+    /* Hintergrundfarbe als Fallback, falls das Bild nicht geladen wird */
+    background-color: #f1f5f9; /* bg-slate-100 */
+    /* Stellen Sie sicher, dass der body den vollen Viewport einnimmt */
+    min-height: 100vh;
+    margin: 0;
         }
         .transition-all {
             transition: all 0.3s ease-in-out;

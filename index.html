@@ -225,20 +225,38 @@
         vCardBtn.href = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCardData)}`;
         
         const accordions = document.querySelectorAll('.accordion-header');
+
+        function toggleAccordion(accordion) {
+            const content = accordion.nextElementSibling;
+            const icon = accordion.querySelector('.accordion-icon');
+            const isActive = content.style.maxHeight;
+
+            if (isActive) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
         accordions.forEach(accordion => {
             accordion.addEventListener('click', () => {
-                const content = accordion.nextElementSibling;
-                const icon = accordion.querySelector('.accordion-icon');
-                const isActive = content.style.maxHeight;
-                if (isActive) {
-                    content.style.maxHeight = null;
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    icon.style.transform = 'rotate(180deg)';
-                }
+                toggleAccordion(accordion); 
             });
         });    
+
+        if (window.location.hash) {
+            const targetId = window.location.hash.substring(1);
+            const targetAccordion = document.getElementById(targetId);
+    
+            if (targetAccordion && targetAccordion.classList.contains('accordion-header')) {
+                if (!targetAccordion.nextElementSibling.style.maxHeight) {
+                    toggleAccordion(targetAccordion); 
+                }
+                targetAccordion.scrollIntoView({ behavior: 'smooth' });
+            }
+        } 
         
         function setupFlipCards() {
             const flipCards = document.querySelectorAll('.flip-card-container');
@@ -283,4 +301,5 @@
     </script>
 </body>
 </html>
+
 

@@ -11,18 +11,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-slate-50 text-slate-800">
-    <!-- Main vCard Container -->
     <main class="max-w-5xl mx-auto p-4 sm:p-8">
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
             <div class="md:flex">
@@ -64,7 +60,6 @@
                 </div>
             </div>
         </div>
-        <!-- Areas of Expertise Section with Flip Cards -->
         <div class="mt-8">
              <div class="bg-white rounded-2xl shadow-lg">
                 <button class="accordion-header w-full flex justify-between items-center p-6 text-left">
@@ -73,7 +68,6 @@
                 </button>
                 <div class="accordion-content">
                     <div class="p-6 pt-0 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">         
-                        <!-- Project Management Card -->
                         <div class="flip-card-container aspect-square cursor-pointer group">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front bg-slate-50 hover:bg-[#FEF9E7] border-2 border-transparent hover:border-[#FBC02D] transition-all p-4">
@@ -89,7 +83,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Parking Technology Card -->
                         <div class="flip-card-container aspect-square cursor-pointer group">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front bg-slate-50 hover:bg-[#E6F0F7] border-2 border-transparent hover:border-[#00599C] transition-all p-4">
@@ -105,7 +98,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Digital Strategy Card -->
                         <div class="flip-card-container aspect-square cursor-pointer group">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front bg-slate-50 hover:bg-[#EBF3EC] border-2 border-transparent hover:border-[#386641] transition-all p-4">
@@ -121,7 +113,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Security Operations Card -->
                         <div class="flip-card-container aspect-square cursor-pointer group">
                              <div class="flip-card-inner">
                                 <div class="flip-card-front bg-slate-50 hover:bg-[#FBEAE6] border-2 border-transparent hover:border-[#E07A5F] transition-all p-4">
@@ -141,9 +132,7 @@
                 </div>
             </div>
         </div>
-        <!-- Legal Sections -->
         <div class="mt-8 space-y-6">
-            <!-- Datenschutz Accordion -->
             <div class="bg-white rounded-2xl shadow-lg">
                 <button class="accordion-header w-full flex justify-between items-center p-6 text-left">
                     <h2 class="text-2xl font-bold text-slate-900">Datenschutzerklärung</h2>
@@ -179,7 +168,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Impressum Accordion -->
             <div class="bg-white rounded-2xl shadow-lg">
                 <button class="accordion-header w-full flex justify-between items-center p-6 text-left">
                     <h2 class="text-2xl font-bold text-slate-900">Impressum</h2>
@@ -189,44 +177,39 @@
                     <div class="p-6 pt-0 text-sm text-slate-600">
                         <p>
                             Sebastian Koch<br>
-                            Wegscheiderstr. 17<br>
-                            D-06110 Halle/Saale<br><br>
+                            Geiststr. 56<br>
+                            D-06108 Halle/Saale<br><br>
                             E-Mail: mail@kochseb.de<br>
-			    Telefon: +4934556644871<br>
+			    Telefon: +491783072176<br>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <!-- Footer -->
     <footer class="text-center p-6 mt-4 text-sm text-slate-500">
         <p>&copy; <span id="year"></span> Sebastian Koch</p>
     </footer>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
-        // --- vCard Generation ---
         const vCardData = `BEGIN:VCARD
             VERSION:3.0
             N:Koch;Sebastian;;;
             FN:Sebastian Koch
-            TEL;TYPE=WORK,VOICE:+4934556644871
+            TEL;TYPE=WORK,VOICE:+491783072176
             EMAIL:mail@kochseb.de
 	    URL:https://www.kochseb.de
      	    NOTE: Digital Technical Project Manager 
             END:VCARD`;   
             const vCardBtn = document.getElementById('vcard-btn');
             vCardBtn.href = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCardData)}`;
-            // --- Accordion Logic ---
             const accordions = document.querySelectorAll('.accordion-header');
             accordions.forEach(accordion => {
                 accordion.addEventListener('click', () => {
                     const content = accordion.nextElementSibling;
                     const icon = accordion.querySelector('.accordion-icon');
                     const isActive = content.style.maxHeight;
-                    // Toggle the clicked accordion
                     if (isActive) {
                         content.style.maxHeight = null;
                         icon.style.transform = 'rotate(0deg)';
@@ -236,7 +219,6 @@
                     }
                 });
             });	
-	    // --- Flip Card Logic ---
             function setupFlipCards() {
                 const flipCards = document.querySelectorAll('.flip-card-container');
                 flipCards.forEach(card => {
@@ -250,5 +232,6 @@
     </script>
 </body>
 </html>
+
 
 
